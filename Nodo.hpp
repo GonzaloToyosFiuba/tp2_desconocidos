@@ -1,8 +1,6 @@
 #ifndef __NODO_H__
 #define __NODO_H__
 
-
-
 template <class TIPO>
 
 class Nodo
