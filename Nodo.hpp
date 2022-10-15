@@ -24,12 +24,15 @@ template <class TIPO>
 void Nodo<TIPO>::cambiar_siguiente(Nodo<TIPO>* siguiente){
     this -> siguiente = siguiente;
 }
+
 template <class TIPO>
 TIPO Nodo<TIPO>::obtener_dato(){
     return this -> dato;
 }
+
 template <class TIPO>
 Nodo<TIPO>* Nodo<TIPO>::obtener_siguiente(){
     return this -> siguiente;
 }
+
 #endif // __NODO_H__

@@ -11,8 +11,10 @@ private:
     Nodo<TIPO>* primero;
     Nodo<TIPO>* cursor;
     int cantidad;
+
 private:
     Nodo<TIPO>* obtener_nodo(int posicion);
+    
 public:
     Lista();
     //*pre :    0 < pos <= cantidad + 1 
@@ -55,7 +57,7 @@ void Lista<TIPO>::alta(TIPO dato, int posicion){
 
     if (posicion == 1){
         this -> primero = nuevo_nodo;
-    }else{
+    } else {
         Nodo<TIPO> *nodo_anterior = obtener_nodo(posicion - 1);
         siguiente = nodo_anterior -> obtener_siguiente();
         nuevo_nodo -> cambiar_siguiente(siguiente);
@@ -83,7 +85,7 @@ void Lista<TIPO>::baja(int posicion){
     if (posicion == 1){
         this -> primero = this -> primero -> obtener_siguiente();
         delete auxiliar_borrar;
-    }else{
+    } else {
         Nodo<TIPO> *nodo_anterior = obtener_nodo(posicion - 1);
         auxiliar_borrar = nodo_anterior->obtener_siguiente();
         nodo_anterior -> cambiar_siguiente(auxiliar_borrar->obtener_siguiente());
