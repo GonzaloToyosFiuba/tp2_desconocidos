@@ -2,6 +2,7 @@
 #define __REFUGIO_H__
 
 #include "Lista.hpp"
+#include "Animal.hpp"
 #include <iostream>
 #include <fstream>
 using namespace std;

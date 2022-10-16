@@ -1,4 +1,7 @@
 #include "Refugio.hpp"
+#include "Caballo.hpp"
+#include "Gato.hpp"
+#include "Perro.hpp"
 
 const string PATH = "mascotas.csv";
 
