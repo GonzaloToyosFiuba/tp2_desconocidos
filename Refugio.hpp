@@ -26,9 +26,30 @@ private:
 public:
     Refugio();
 
+    void mostrar_lista_de_mascotas();
+
+    void rescatar_animal();
+
+    void guardar_y_salir();
+
 private:
+
     void agregar_mascota_a_la_lista(Datos_mascota mascota);
+
+    string pedir_nombre();
+
+    int pedir_edad();
+
+    string pedir_tamanio();
+
+    char pedir_especie();
+
+    string pedir_personalidad();
+
+    bool es_nombre_repetido(string nombre);
+
     void leer_datos();
+
 
 };
 

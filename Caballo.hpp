@@ -8,7 +8,6 @@ class Caballo : public Animal
 private:
     
 public:
-    Caballo();
 
     Caballo(string nombre, int edad, string tamanio, char especie, string personalidad);
 

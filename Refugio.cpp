@@ -48,7 +48,7 @@ void Refugio::agregar_mascota_a_la_lista(Datos_mascota mascota){
         mascota_aux = new Gato(mascota.nombre, mascota.edad, mascota.tamanio, mascota.especie, mascota.personalidad);
     } else if (mascota.especie == CABALLO) {
         mascota_aux = new Caballo(mascota.nombre, mascota.edad, mascota.tamanio, mascota.especie, mascota.personalidad);        
-    } else if (mascota.especie == ROEDOR) {
+    }/*0 else if (mascota.especie == ROEDOR) {
         mascota_aux = new Roedor(mascota.nombre, mascota.edad, mascota.tamanio, mascota.especie, mascota.personalidad);        
     } else if (mascota.especie == CONEJO) {
         mascota_aux = new Conejo(mascota.nombre, mascota.edad, mascota.tamanio, mascota.especie, mascota.personalidad);        
@@ -57,6 +57,107 @@ void Refugio::agregar_mascota_a_la_lista(Datos_mascota mascota){
     } else {//lagartija
         mascota_aux = new Lagartija(mascota.nombre, mascota.edad, mascota.tamanio, mascota.especie, mascota.personalidad);        
     }
-
+    */
     this -> mascotas.alta(mascota_aux, this -> mascotas.obtener_cantidad() + 1);
+}
+
+void Refugio::mostrar_lista_de_mascotas(){
+    Animal *mascota_aux;
+    
+    cout<< "MASCOTAS DEL REGUGIO:" << endl << endl;
+    
+    mascotas.iniciar_cursor();
+
+    while (mascotas.hay_siguiente_cursor()){
+        mascota_aux = mascotas.obtener_cursor();
+
+        cout << "Nombre: " << mascota_aux->obtener_nombre() << endl;
+        cout << "Edad: " << mascota_aux->obtener_edad() << endl;
+        cout << "tamanio: " << mascota_aux->obtener_tamanio() << endl;
+        cout << "Especie: " << mascota_aux->obtener_especie() << endl;
+        cout << "Personalidad:" << mascota_aux->obtener_personalidad() << endl; 
+        cout << "--------------------------" << endl;
+    }
+    
+}
+
+void Refugio::rescatar_animal(){
+    Datos_mascota mascota;
+
+    mascota.nombre = pedir_nombre();
+    
+    if(mascota.nombre == "*"){
+        cout << "Volviedo al Menu" << endl << endl;
+        return;
+    }
+    
+    mascota.edad = pedir_edad();
+    //mascota.tamanio = pedir_tamanio();
+    //mascota.especie = pedir_especie();
+    //mascota.personalidad = pedir_personalidad();
+
+}
+
+string Refugio::pedir_nombre(){
+    string nombre;
+
+    cout << "Ingrese el nombre del animal: ";
+    getline(cin >> ws, nombre);
+    cout << endl;
+
+    while (es_nombre_repetido(nombre) && nombre != "*" ){
+        
+        cout << "El nombre existe, que desea hacer:" << endl;  
+        cout << '\t' << "INGRESE:" << endl;
+        cout << '\t' << "   -> (*) Para salir."<< endl;
+        cout << '\t' << "   ->  Otro nombre ,no repetido, para seguir." << endl;
+
+        cout << "Nombre: ";
+        getline(cin >> ws, nombre);
+        cout << endl;
+    }
+    
+    return nombre;
+}
+
+int Refugio::pedir_edad(){
+    int edad;
+
+    cout << "Ingrese la edad del animal: " ;
+    cin >> edad;
+    cout << endl;
+
+    while (edad < 0 ){
+        cout << "Reingrese la edad:" << endl;
+        cout << "Edad: ";
+        cin >> edad;
+    }
+    
+    return edad;
+}
+
+bool Refugio::es_nombre_repetido(string nombre){
+    bool es_repetido = false;
+
+    this->mascotas.iniciar_cursor();
+
+    while ( this->mascotas.hay_siguiente_cursor() && !es_repetido){
+
+        if(nombre == mascotas.obtener_cursor()->obtener_nombre()){
+            es_repetido = true;
+        }
+    }
+    return es_repetido;
+}
+
+void Refugio::guardar_y_salir(){
+
+    this->mascotas.iniciar_cursor();
+
+    while (this->mascotas.hay_siguiente_cursor()){
+         
+        delete this->mascotas.obtener_cursor();
+
+    }
+
 }

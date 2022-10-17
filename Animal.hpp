@@ -20,43 +20,22 @@ protected:
     string alimento;
     
 public:
-    Animal();
-
-    //PRE:
-    //POST: asigna el nombre al animal
-    void asignar_nombre(string nombre);
 
     //PRE:
     //POST: devuelve el nombre del animal
     string obtener_nombre();
-
-    //PRE:
-    //POST: asigna la edad del animal
-    void asignar_edad(int edad);
     
     //PRE:
     //POST: devuelve la edad del animal 
     int obtener_edad();
 
     //PRE:
-    //POST: asigna el tamaño al animal
-    void asignar_tamanio(string tamanio);
-
-    //PRE:
     //POST: devuelve el tamanio del animal
     string obtener_tamanio();
 
     //PRE:
-    //POST: asigna la especie al animal
-    void asignar_especie(char especie);
-
-    //PRE:
     //POST: devuelve la especie del animal
     char obtener_especie();
-
-    //PRE:
-    //POST: asigna la personalidad al animal
-    void asignar_personalidad(string personalidad);
 
     //PRE:
     //POST: devuelve la personalidad del animal
@@ -85,6 +64,8 @@ public:
     //PRE:
     //POST: devuelve la higiene del animal
     int obtener_higiene();
+
+    virtual ~Animal() = default;
 
 
 protected:

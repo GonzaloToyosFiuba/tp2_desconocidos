@@ -4,55 +4,22 @@
 
 using namespace std;
 
-Animal::Animal() {
-    nombre = VACIO;
-    edad = 0;
-    tamanio = VACIO;
-    especie = ' ';
-    personalidad = VACIO;
-    hambre = MIN_HAMBRE;
-    higiene = MAX_HIGIENE;
-    espacio_minimo = INFINITO;
-    espacio_maximo = 0;
-    alimento = VACIO;
-}
-
-void Animal::asignar_nombre(string nombre) {
-    this->nombre = nombre;
-}
-
 string Animal::obtener_nombre() {
     return nombre;
-}
-
-void Animal::asignar_edad(int edad) {
-    this->edad = edad;
 }
 
 int Animal::obtener_edad() {
     return edad;
 }
 
-void Animal::asignar_tamanio(string tamanio) {
-    this->tamanio = tamanio;
-    asignar_espacios();
-}
-
 string Animal::obtener_tamanio() {
     return tamanio;
-}
-
-void Animal::asignar_especie(char especie) {
-    this->especie = especie;
 }
 
 char Animal::obtener_especie() {
     return especie;
 }
 
-void Animal::asignar_personalidad(string personalidad) {
-    this->personalidad = personalidad;
-}
 
 string Animal::obtener_personalidad() {
     return personalidad;

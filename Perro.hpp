@@ -8,8 +8,7 @@ class Perro : public Animal
 private:
     
 public:
-    Perro();
-
+    
     Perro(string nombre, int edad, string tamanio, char especie, string personalidad);
 
 

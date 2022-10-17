@@ -4,19 +4,6 @@
 
 using namespace std;
 
-Gato::Gato() {
-
-    nombre = VACIO;
-    edad = 0;
-    tamanio = VACIO;
-    especie = ' ';
-    personalidad = VACIO;
-    hambre = MIN_HAMBRE;
-    higiene = MAX_HIGIENE;
-    espacio_minimo = INFINITO;
-    espacio_maximo = 0;
-    alimento = ATUN;
-}
 
 Gato::Gato(string nombre, int edad, string tamanio, char especie, string personalidad) {
 
