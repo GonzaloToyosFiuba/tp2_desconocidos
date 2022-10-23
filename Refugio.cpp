@@ -110,7 +110,7 @@ string Refugio::pedir_nombre(){
         cout << "El nombre existe, que desea hacer:" << endl;  
         cout << '\t' << "INGRESE:" << endl;
         cout << '\t' << "   -> (*) Para salir."<< endl;
-        cout << '\t' << "   ->  Otro nombre ,no repetido, para seguir." << endl;
+        cout << '\t' << "   ->  Otro nombre, no repetido, para seguir." << endl;
 
         cout << "Nombre: ";
         getline(cin >> ws, nombre);
