@@ -301,3 +301,78 @@ void Refugio::cuidar_animal(){
         this->procesar_opcion_cuidar_animal(opcion);
     }
 }
+
+void Refugio::pedir_espacio_disponible(int &espacio){
+    cout << "Ingresar espacio disponible en casa (en metros cuadrados): " << endl;
+    cin >> espacio;
+
+    while(espacio <= 0){
+        cout << "Ingresar un espacio válido." << endl;
+        cout << "Ingresar espacio disponible en casa (en metros cuadrados): " << endl;
+        cin >> espacio;
+    }
+}
+
+void Refugio::mostrar_animales_adoptables(int espacio , Lista<int>* indices_animales_adoptables){
+    int indice = 1;
+    int posicion = 1;
+    Animal* mascota_aux;
+    this->mascotas.iniciar_cursor();
+
+    while (this->mascotas.hay_siguiente_cursor()){
+        mascota_aux = mascotas.obtener_cursor();
+
+        if (mascota_aux->se_puede_adoptar(espacio)){
+            cout << "Mascota N° " << indice << endl;
+            mascota_aux->mostrar_informacion_general();
+            cout << "-------------------------" << endl;
+            indices_animales_adoptables->alta(indice, posicion);
+            posicion ++;
+        }
+        indice ++;
+    }
+}
+
+bool Refugio::es_animal_adoptable(Lista<int>* indices_animales_adoptables, int indice){
+    bool se_puede_adoptar = false;
+
+    indices_animales_adoptables->iniciar_cursor();
+
+    while (indices_animales_adoptables->hay_siguiente_cursor() && !se_puede_adoptar){
+        if (indices_animales_adoptables->obtener_cursor() == indice){
+            se_puede_adoptar = true;
+        }
+        
+    }
+    
+    return se_puede_adoptar;
+}
+
+void Refugio::pedir_animal_a_adoptar(Lista<int>* indices_animales_adoptables, int &indice){
+    cout << "Ingresar el numero de la mascota que quiere adoptar (ingrese '-1' para volver al menu). " << endl;
+    cout << "Numero: ";
+    cin >> indice;
+
+    while (indice != -1 && !this->es_animal_adoptable(indices_animales_adoptables, indice)){
+        cout << "Animal fuera de la lista de los que puede adoptar" << endl;
+        cout << "Ingresar el numero de la mascota que quiere adoptar (ingrese '-1' para volver al menu). " << endl;
+        cout << "Numero: ";
+        cin >> indice;
+    }
+}
+
+void Refugio::adoptar_animal(){
+    int espacio;
+    int indice = -1;
+    Lista<int> *indices_animales_adoptables = new Lista<int>;
+    this->pedir_espacio_disponible(espacio);
+    this->mostrar_animales_adoptables(espacio, indices_animales_adoptables);
+    this->pedir_animal_a_adoptar(indices_animales_adoptables,indice);
+    
+    if (indice != -1){
+        delete mascotas.consulta(indice);
+        mascotas.baja(indice);
+    }
+
+    delete indices_animales_adoptables;
+}

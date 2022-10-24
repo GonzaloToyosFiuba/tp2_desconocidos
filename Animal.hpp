@@ -67,6 +67,10 @@ public:
 
     void mostrar_informacion();
 
+    void mostrar_informacion_general();
+
+    bool se_puede_adoptar(int espacio);
+
     virtual ~Animal() = default;
 
 

@@ -36,6 +36,8 @@ public:
 
     void cuidar_animal();
 
+    void adoptar_animal();
+
 private:
 
     void agregar_mascota_a_la_lista(Datos_mascota mascota);
@@ -68,6 +70,13 @@ private:
 
     void procesar_opcion_cuidar_individual(int opcion, Animal* mascota);
 
+    void pedir_espacio_disponible(int &espacio);
+
+    void mostrar_animales_adoptables(int espacio, Lista<int>* indices_animales_adoptables);
+
+    void pedir_animal_a_adoptar(Lista<int>* indices_animales_adoptables, int &indice);
+
+    bool es_animal_adoptable(Lista<int>* indices_animales_adoptables, int indice);
 
 };
 
