@@ -32,6 +32,10 @@ public:
 
     void guardar_y_salir();
 
+    void buscar_animal();
+
+    void cuidar_animal();
+
 private:
 
     void agregar_mascota_a_la_lista(Datos_mascota mascota);
@@ -49,6 +53,20 @@ private:
     bool es_nombre_repetido(string nombre);
 
     void leer_datos();
+
+    void procesar_opcion_cuidar_animal(int opcion);
+
+    void alimentar_a_todos();
+
+    void duchar_a_todos();
+
+    void pedir_opcion_cuidar_animal(int &opcion);
+
+    void elegir_individualmente();
+
+    void pedir_opcion_cuidar_individual(int &opcion);
+
+    void procesar_opcion_cuidar_individual(int opcion, Animal* mascota);
 
 
 };

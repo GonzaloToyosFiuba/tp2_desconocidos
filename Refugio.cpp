@@ -61,22 +61,14 @@ void Refugio::agregar_mascota_a_la_lista(Datos_mascota mascota){
     this -> mascotas.alta(mascota_aux, this -> mascotas.obtener_cantidad() + 1);
 }
 
-void Refugio::mostrar_lista_de_mascotas(){
-    Animal *mascota_aux;
-    
+void Refugio::mostrar_lista_de_mascotas(){    
     cout<< "MASCOTAS DEL REGUGIO:" << endl << endl;
     
     mascotas.iniciar_cursor();
 
     while (mascotas.hay_siguiente_cursor()){
-        mascota_aux = mascotas.obtener_cursor();
-
-        cout << "Nombre: " << mascota_aux->obtener_nombre() << endl;
-        cout << "Edad: " << mascota_aux->obtener_edad() << endl;
-        cout << "tamanio: " << mascota_aux->obtener_tamanio() << endl;
-        cout << "Especie: " << mascota_aux->obtener_especie() << endl;
-        cout << "Personalidad:" << mascota_aux->obtener_personalidad() << endl; 
-        cout << "--------------------------" << endl;
+        mascotas.obtener_cursor()->mostrar_informacion();        
+        cout << "--------------------------" << endl << endl;
     }
     
 }
@@ -150,6 +142,34 @@ bool Refugio::es_nombre_repetido(string nombre){
     return es_repetido;
 }
 
+void Refugio::buscar_animal(){
+    string nombre;
+    bool encontrado = false;
+    Animal *mascota_aux;
+
+    
+    cout << "Ingresar nombre del animal buscado: ";
+    getline(cin >> ws, nombre);
+    cout << endl;
+
+    this->mascotas.iniciar_cursor();
+
+
+    while (mascotas.hay_siguiente_cursor() && !encontrado){
+        mascota_aux = mascotas.obtener_cursor();
+
+        if(mascota_aux->obtener_nombre() == nombre){
+            mascota_aux->mostrar_informacion();
+            encontrado = true;
+        }
+    }
+
+    if(!encontrado){
+        cout << "No se encontró a la mascota." << endl;
+        cout << "Volviendo al menú..." << endl;
+    }
+}
+
 void Refugio::guardar_y_salir(){
 
     this->mascotas.iniciar_cursor();
@@ -160,4 +180,124 @@ void Refugio::guardar_y_salir(){
 
     }
 
+}
+
+enum Opciones_menu_principal{
+    ELEGIR_INDIVIDUALMENTE = 1,
+    ALIMENTAR_A_TODOS,
+    DUCHAR_A_TODOS,
+    SALIR
+};
+
+enum Opciones_menu_individual{
+    DUCHAR = 1,
+    ALIMENTAR,
+    SALTEAR
+};
+
+void Refugio::alimentar_a_todos(){
+    this->mascotas.iniciar_cursor();
+
+    while (this->mascotas.hay_siguiente_cursor()){
+        this->mascotas.obtener_cursor()->alimentar();
+    }
+}
+
+void Refugio::duchar_a_todos(){
+    this->mascotas.iniciar_cursor();
+
+    while (this->mascotas.hay_siguiente_cursor()){
+        this->mascotas.obtener_cursor()->duchar();
+    }
+}
+
+void Refugio::pedir_opcion_cuidar_individual(int &opcion){
+    cout << "¿Qué desea hacer con la mascota?" << endl;
+    cout << "1) Duchar mascota" << endl;
+    cout << "2) Alimentar mascota." << endl;
+    cout << "3) Saltear" << endl;
+    cin >> opcion;
+
+    while(opcion < DUCHAR || opcion > SALTEAR){
+        cout << "Ingresar una opción válida." << endl;
+        cout << "1) Duchar mascota" << endl;
+        cout << "2) Alimentar mascota." << endl;
+        cout << "3) Saltear" << endl;
+        cin >> opcion;
+    }
+}
+
+void Refugio::procesar_opcion_cuidar_individual(int opcion, Animal* mascota){
+
+    switch (opcion) {
+        case DUCHAR:
+            mascota->duchar();
+        break;
+
+        case ALIMENTAR:
+            mascota->alimentar();
+        break;
+    }
+}
+
+void Refugio::elegir_individualmente(){
+    Animal* mascota_aux;
+    this->mascotas.iniciar_cursor();
+    int opcion = -1;
+
+    while (this->mascotas.hay_siguiente_cursor()){
+        mascota_aux = this->mascotas.obtener_cursor();
+        
+        while (opcion != SALTEAR){
+            cout << endl;
+            mascota_aux->mostrar_informacion();
+            this->pedir_opcion_cuidar_individual(opcion);
+            this->procesar_opcion_cuidar_individual(opcion, mascota_aux);
+        }
+        
+        opcion = -1;
+    }
+}
+
+void Refugio::procesar_opcion_cuidar_animal(int opcion){
+    switch (opcion) {
+        case ELEGIR_INDIVIDUALMENTE:
+            this->elegir_individualmente();
+        break;
+
+        case ALIMENTAR_A_TODOS:
+            this->alimentar_a_todos();
+        break;
+
+        case DUCHAR_A_TODOS:
+            this->duchar_a_todos();
+        break;
+    }
+}
+
+void Refugio::pedir_opcion_cuidar_animal(int &opcion){
+    cout << "Ingresar opción: " << endl;
+    cout << "1) Elegir individualmente." << endl;
+    cout << "2) Alimentar a todos." << endl;
+    cout << "3) Bañar a todos." << endl;
+    cout << "4) Salir." << endl;
+    cin >> opcion;
+
+    while(opcion < ELEGIR_INDIVIDUALMENTE || opcion > SALIR){
+        cout << "Ingresar una opción válida." << endl;
+        cout << "1) Elegir individualmente." << endl;
+        cout << "2) Alimentar a todos." << endl;
+        cout << "3) Bañar a todos." << endl;
+        cout << "4) Salir." << endl;
+        cin >> opcion;
+    }
+}
+
+void Refugio::cuidar_animal(){
+    int opcion = -1;
+
+    while (opcion != SALIR){
+        this->pedir_opcion_cuidar_animal(opcion);
+        this->procesar_opcion_cuidar_animal(opcion);
+    }
 }

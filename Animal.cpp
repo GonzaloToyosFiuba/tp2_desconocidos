@@ -97,3 +97,13 @@ void Animal::asignar_espacios() {
     }
     
 }
+
+void Animal::mostrar_informacion(){
+    cout << "Nombre: " << this->nombre << endl;
+    cout << "Edad: " << this->edad << endl;
+    cout << "tamanio: " << this->tamanio << endl;
+    cout << "Especie: " << this->especie << endl;
+    cout << "Personalidad: " << this->personalidad << endl;
+    cout << "Hambre: " << this->hambre << endl;
+    cout << "Higiene: " << this->higiene << endl;
+}

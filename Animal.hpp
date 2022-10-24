@@ -65,6 +65,8 @@ public:
     //POST: devuelve la higiene del animal
     int obtener_higiene();
 
+    void mostrar_informacion();
+
     virtual ~Animal() = default;
 
 
