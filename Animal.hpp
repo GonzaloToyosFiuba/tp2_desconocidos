@@ -2,6 +2,7 @@
 #define __ANIMAL_H_
 
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -70,6 +71,8 @@ public:
     void mostrar_informacion_general();
 
     bool se_puede_adoptar(int espacio);
+
+    string obtener_informacion_a_guardar();
 
     virtual ~Animal() = default;
 

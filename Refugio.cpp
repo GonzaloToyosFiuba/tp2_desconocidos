@@ -84,6 +84,11 @@ void Refugio::rescatar_animal(){
     }
     
     mascota.edad = pedir_edad();
+    mascota.tamanio = "grande";
+    mascota.especie = 'P';
+    mascota.personalidad = "travieso";
+
+    this->agregar_mascota_a_la_lista(mascota);
     //mascota.tamanio = pedir_tamanio();
     //mascota.especie = pedir_especie();
     //mascota.personalidad = pedir_personalidad();
@@ -171,13 +176,19 @@ void Refugio::buscar_animal(){
 }
 
 void Refugio::guardar_y_salir(){
+    this->mascotas.iniciar_cursor();
+
+    ofstream archivoMascotas(PATH);
+    while (this->mascotas.hay_siguiente_cursor()) {
+        archivoMascotas << this->mascotas.obtener_cursor()->obtener_informacion_a_guardar() << endl;
+    }
+    
+    archivoMascotas.close();
 
     this->mascotas.iniciar_cursor();
 
     while (this->mascotas.hay_siguiente_cursor()){
-         
         delete this->mascotas.obtener_cursor();
-
     }
 
 }

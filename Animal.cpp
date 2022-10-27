@@ -116,6 +116,11 @@ void Animal::mostrar_informacion_general(){
     cout << "Personalidad: " << this->personalidad << endl;
 }
 
+string Animal::obtener_informacion_a_guardar(){
+    return this->obtener_nombre() + "," + to_string(this->obtener_edad()) + "," + this->obtener_tamanio()
+           + "," + this->obtener_especie() + "," + this->obtener_personalidad();
+}
+
 bool Animal::se_puede_adoptar(int espacio){
     return true;
 }
