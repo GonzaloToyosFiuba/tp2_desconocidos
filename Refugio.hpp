@@ -15,8 +15,6 @@ struct Datos_mascota{
     string personalidad;
 };
 
-const char PERRO = 'P', GATO = 'G', CABALLO = 'C', ROEDOR = 'R';
-const char CONEJO = 'O', ERIZO = 'E', LAGARTIJA = 'L';
 
 class Refugio{
 
@@ -53,6 +51,14 @@ private:
     string pedir_personalidad();
 
     bool es_nombre_repetido(string nombre);
+
+    bool tamanio_es_valido(string tamanio);
+
+    bool especie_es_valida(string especie);
+
+    bool personalidad_es_valida(string personalidad);
+
+    char obtener_char_especie(string especie);
 
     void leer_datos();
 

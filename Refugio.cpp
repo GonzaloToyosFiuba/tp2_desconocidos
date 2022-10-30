@@ -2,6 +2,11 @@
 #include "Caballo.hpp"
 #include "Gato.hpp"
 #include "Perro.hpp"
+#include "Roedor.hpp"
+#include "Conejo.hpp"
+#include "Erizo.hpp"
+#include "Lagartija.hpp"
+#include "constantes.hpp"
 
 const string PATH = "mascotas.csv";
 
@@ -48,7 +53,7 @@ void Refugio::agregar_mascota_a_la_lista(Datos_mascota mascota){
         mascota_aux = new Gato(mascota.nombre, mascota.edad, mascota.tamanio, mascota.especie, mascota.personalidad);
     } else if (mascota.especie == CABALLO) {
         mascota_aux = new Caballo(mascota.nombre, mascota.edad, mascota.tamanio, mascota.especie, mascota.personalidad);        
-    }/*0 else if (mascota.especie == ROEDOR) {
+    } else if (mascota.especie == ROEDOR) {
         mascota_aux = new Roedor(mascota.nombre, mascota.edad, mascota.tamanio, mascota.especie, mascota.personalidad);        
     } else if (mascota.especie == CONEJO) {
         mascota_aux = new Conejo(mascota.nombre, mascota.edad, mascota.tamanio, mascota.especie, mascota.personalidad);        
@@ -57,12 +62,12 @@ void Refugio::agregar_mascota_a_la_lista(Datos_mascota mascota){
     } else {//lagartija
         mascota_aux = new Lagartija(mascota.nombre, mascota.edad, mascota.tamanio, mascota.especie, mascota.personalidad);        
     }
-    */
+    
     this -> mascotas.alta(mascota_aux, this -> mascotas.obtener_cantidad() + 1);
 }
 
 void Refugio::mostrar_lista_de_mascotas(){    
-    cout<< "MASCOTAS DEL REGUGIO:" << endl << endl;
+    cout<< "MASCOTAS DEL REFUGIO:" << endl << endl;
     
     mascotas.iniciar_cursor();
 
@@ -84,15 +89,15 @@ void Refugio::rescatar_animal(){
     }
     
     mascota.edad = pedir_edad();
-    mascota.tamanio = "grande";
-    mascota.especie = 'P';
-    mascota.personalidad = "travieso";
+    mascota.tamanio = pedir_tamanio();
+    mascota.especie = pedir_especie();
+    mascota.personalidad = pedir_personalidad();
 
     this->agregar_mascota_a_la_lista(mascota);
-    //mascota.tamanio = pedir_tamanio();
-    //mascota.especie = pedir_especie();
-    //mascota.personalidad = pedir_personalidad();
 
+    // mascota.tamanio = "grande";
+    // mascota.especie = 'P';
+    // mascota.personalidad = "travieso";
 }
 
 string Refugio::pedir_nombre(){
@@ -133,6 +138,51 @@ int Refugio::pedir_edad(){
     return edad;
 }
 
+string Refugio::pedir_tamanio(){
+    string tamanio;
+
+    cout << "Ingrese el tamaño del animal: ";
+    cin >> tamanio;
+
+    while (!tamanio_es_valido(tamanio)){
+        cout << "Los tamaños validos son: diminuto, pequeño, mediano, grande y gigante." << endl;
+        cout << "Ingrese un tamaño valido: " ;
+        cin >> tamanio;
+    }
+
+    return tamanio;
+}
+
+char Refugio::pedir_especie(){
+    string especie;
+
+    cout << "Ingrese la especie del animal: " ;
+    cin >> especie;
+
+    while (!especie_es_valida(especie)){
+        cout << "Las especies validas son: Perro, Gato, Caballo, Roedor, Conejo, Erizo, Lagartija." << endl;
+        cout << "Ingrese una especie valida: ";
+        cin >> especie;
+    }
+
+    return this->obtener_char_especie(especie);
+}
+
+string Refugio::pedir_personalidad(){
+    string personalidad;
+
+    cout << "Ingrese la personalidad del animal: ";
+    cin >> personalidad;
+
+    while(!personalidad_es_valida(personalidad)){
+        cout << "Las personalidades validas son: dormilon, jugueton, sociable, travieso." << endl;
+        cout << "Ingrese una personalidad valida: ";
+        cin >> personalidad;
+    }
+
+    return personalidad;
+}
+
 bool Refugio::es_nombre_repetido(string nombre){
     bool es_repetido = false;
 
@@ -145,6 +195,44 @@ bool Refugio::es_nombre_repetido(string nombre){
         }
     }
     return es_repetido;
+}
+
+bool Refugio::tamanio_es_valido(string tamanio){
+    return (tamanio == DIMINUTO || tamanio == PEQUENIO || tamanio == MEDIANO ||
+            tamanio == GRANDE || tamanio == GIGANTE);
+}
+
+bool Refugio::especie_es_valida(string especie){
+    return (especie == PERRO_S || especie == GATO_S || especie == CABALLO_S || 
+            especie == ROEDOR_S || especie == CONEJO_S || especie == ERIZO_S ||
+            especie == LAGARTIJA_S);
+}
+
+bool Refugio::personalidad_es_valida(string personalidad){
+    return(personalidad == DIMINUTO || personalidad == JUGUETON ||
+           personalidad == SOCIABLE || personalidad == TRAVIESO);
+}
+
+char Refugio::obtener_char_especie(string especie){
+    char especie_char;
+
+    if(especie == PERRO_S){
+        especie_char = PERRO;
+    } else if(especie == GATO_S){
+        especie_char = GATO;
+    } else if(especie == CABALLO_S){
+        especie_char = CABALLO;
+    } else if(especie == ROEDOR_S){
+        especie_char = ROEDOR;
+    } else if(especie == CONEJO_S){
+        especie_char = CONEJO;
+    } else if(especie == ERIZO_S){
+        especie_char = ERIZO;
+    } else if(especie == LAGARTIJA_S){
+        especie_char = LAGARTIJA;
+    }
+
+    return especie_char;
 }
 
 void Refugio::buscar_animal(){

@@ -54,6 +54,7 @@ void Animal::ensuciar() {
 
 void Animal::duchar() {
     higiene = MAX_HIGIENE;
+    cout << nombre << " se ducho y esta libre de suciedad." << endl;
 }
 
 int Animal::obtener_higiene() {
