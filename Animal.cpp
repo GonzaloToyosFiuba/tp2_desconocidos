@@ -1,6 +1,15 @@
 #include "Animal.hpp"
 #include "constantes.hpp"
 #include <iostream>
+#include "Travieso.hpp"
+#include "Sociable.hpp"
+#include "Jugueton.hpp"
+#include "Dormilon.hpp"
+#include "Gigante.hpp"
+#include "Grande.hpp"
+#include "Mediano.hpp"
+#include "Pequenio.hpp"
+#include "Diminuto.hpp"
 
 using namespace std;
 
@@ -13,7 +22,7 @@ int Animal::obtener_edad() {
 }
 
 string Animal::obtener_tamanio() {
-    return tamanio;
+    return tamanio->obtener_tipo_de_tamanio();
 }
 
 char Animal::obtener_especie() {
@@ -22,20 +31,12 @@ char Animal::obtener_especie() {
 
 
 string Animal::obtener_personalidad() {
-    return personalidad;
+    return personalidad->obtener_tipo_de_personalidad();
 }
 
 void Animal::dar_hambre() {
 
-    if(personalidad == DORMILON) {
-        hambre += HAMBRE/2;
-    }
-    else if (personalidad == JUGUETON) {
-        hambre += 2*HAMBRE;
-    }
-    else {
-        hambre += HAMBRE;
-    }
+    hambre += personalidad->perdida_de_hambre(HAMBRE);
 }
 
 void Animal::alimentar() {
@@ -48,16 +49,7 @@ int Animal::obtener_hambre() {
 }
 
 void Animal::ensuciar() {
-
-    if (personalidad == SOCIABLE) {
-        higiene -= SUCIEDAD/2;
-    }
-    else if (personalidad == TRAVIESO) {
-        higiene -= 2*SUCIEDAD;
-    }
-    else {
-        higiene -= SUCIEDAD;
-    }    
+    higiene -= personalidad->perdida_de_higiene(SUCIEDAD);
 }
 
 void Animal::duchar() {
@@ -68,32 +60,17 @@ int Animal::obtener_higiene() {
     return higiene;
 }
 
-void Animal::asignar_espacios() {
-
-    if (tamanio == DIMINUTO) {
-
-        espacio_minimo = 0;
-        espacio_maximo = MAX_DIMINUTO;
-    }
-    else if (tamanio == PEQUENIO) {
-
-        espacio_minimo = 0;
-        espacio_maximo = MAX_PEQUENIO;
-    }
-    else if (tamanio == MEDIANO) {
-
-        espacio_minimo = MIN_MEDIANO;
-        espacio_maximo = INFINITO;
-    }
-    else if (tamanio == GRANDE) {
-
-        espacio_minimo = MIN_GRANDE;
-        espacio_maximo = INFINITO;
-    }
-    else if (tamanio == GIGANTE) {
-
-        espacio_minimo = MIN_GIGANTE;
-        espacio_maximo = INFINITO;
+void Animal::asignar_tamanio(string tamanio) {
+    if(tamanio == "gigante"){
+        this->tamanio = new Gigante(tamanio);
+    } else if(tamanio == "grande"){
+        this->tamanio = new Grande(tamanio);
+    } else if(tamanio == "mediano"){
+        this->tamanio = new Mediano(tamanio);
+    } else if(tamanio == "pequeño"){
+        this->tamanio = new Pequenio(tamanio);
+    } else if(tamanio == "diminuto"){
+        this->tamanio = new Diminuto(tamanio);
     }
     
 }
@@ -101,9 +78,9 @@ void Animal::asignar_espacios() {
 void Animal::mostrar_informacion(){
     cout << "Nombre: " << this->nombre << endl;
     cout << "Edad: " << this->edad << endl;
-    cout << "Tamaño: " << this->tamanio << endl;
+    cout << "Tamaño: " << this->tamanio->obtener_tipo_de_tamanio() << endl;
     cout << "Especie: " << this->especie << endl;
-    cout << "Personalidad: " << this->personalidad << endl;
+    cout << "Personalidad: " << this->personalidad->obtener_tipo_de_personalidad() << endl;
     cout << "Hambre: " << this->hambre << endl;
     cout << "Higiene: " << this->higiene << endl;
 }
@@ -111,9 +88,9 @@ void Animal::mostrar_informacion(){
 void Animal::mostrar_informacion_general(){
     cout << "Nombre: " << this->nombre << endl;
     cout << "Edad: " << this->edad << endl;
-    cout << "Tamaño: " << this->tamanio << endl;
+    cout << "Tamaño: " << this->tamanio->obtener_tipo_de_tamanio() << endl;
     cout << "Especie: " << this->especie << endl;
-    cout << "Personalidad: " << this->personalidad << endl;
+    cout << "Personalidad: " << this->personalidad->obtener_tipo_de_personalidad() << endl;
 }
 
 string Animal::obtener_informacion_a_guardar(){
@@ -121,6 +98,23 @@ string Animal::obtener_informacion_a_guardar(){
            + "," + this->obtener_especie() + "," + this->obtener_personalidad();
 }
 
+void Animal::asignar_personalidad(string personalidad){
+    if(personalidad == "travieso"){
+        this->personalidad = new Travieso(personalidad);
+    } else if(personalidad == "jugueton"){
+        this->personalidad = new Jugueton(personalidad);
+    } else if(personalidad == "sociable"){
+        this->personalidad = new Sociable(personalidad);
+    } else if(personalidad == "dormilon"){
+        this->personalidad = new Dormilon(personalidad);
+    }
+}
+
 bool Animal::se_puede_adoptar(int espacio){
-    return true;
+    return this->tamanio->se_puede_adoptar(espacio);
+}
+
+Animal::~Animal(){
+    delete personalidad;
+    delete tamanio;
 }

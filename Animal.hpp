@@ -2,7 +2,8 @@
 #define __ANIMAL_H_
 
 #include <string>
-#include <sstream>
+#include "Personalidad.hpp"
+#include "Tamanio.hpp"
 
 using namespace std;
 
@@ -11,13 +12,11 @@ class Animal {
 protected:
     string nombre;
     int edad;
-    string tamanio;
+    Tamanio* tamanio;
     char especie;
-    string personalidad;
+    Personalidad* personalidad;
     int hambre;
     int higiene;
-    int espacio_minimo;
-    int espacio_maximo;
     string alimento;
     
 public:
@@ -74,14 +73,16 @@ public:
 
     string obtener_informacion_a_guardar();
 
-    virtual ~Animal() = default;
+    virtual ~Animal() ;
 
 
 protected:
 
     //PRE: tamanio valido
     //POST: asigna los espacios que ocupa un animal segun su tamanio
-    void asignar_espacios();
+    void asignar_tamanio(string tamanio);
+
+    void asignar_personalidad(string personalidad);
 };
 
 

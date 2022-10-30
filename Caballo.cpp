@@ -5,12 +5,10 @@ Caballo::Caballo(string nombre, int edad, string tamanio, char especie, string p
 
     this->nombre = nombre;
     this->edad = edad;
-    this->tamanio = tamanio;
+    this->asignar_tamanio(tamanio);
     this->especie = especie;
-    this->personalidad = personalidad;
+    this->asignar_personalidad(personalidad);
     this->hambre = MIN_HAMBRE;
     this->higiene = MAX_HIGIENE;
     this->alimento = MANZANAS;
-
-    this->asignar_espacios();
 }
