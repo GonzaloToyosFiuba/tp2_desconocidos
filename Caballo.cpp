@@ -12,3 +12,9 @@ Caballo::Caballo(string nombre, int edad, string tamanio, char especie, string p
     this->higiene = MAX_HIGIENE;
     this->alimento = MANZANAS;
 }
+
+void Caballo::ensuciar() {
+    if(this->higiene > MIN_HIGIENE){
+        this->higiene -= this->personalidad->perdida_de_higiene(SUCIEDAD);
+    }
+}

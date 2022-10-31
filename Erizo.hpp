@@ -9,6 +9,7 @@ private:
 public:
     Erizo(string nombre, int edad, string tamanio, char especie, string personalidad);
 
+    void ensuciar();
 };
 
 #endif // __ERIZO_H_

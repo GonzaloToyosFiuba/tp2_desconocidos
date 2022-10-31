@@ -11,6 +11,8 @@ public:
 
     void duchar();
 
+    void ensuciar();
+
 };
 
 #endif // __LAGARTIJA_H_

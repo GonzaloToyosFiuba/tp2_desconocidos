@@ -15,3 +15,7 @@ Roedor::Roedor(string nombre, int edad, string tamanio, char especie, string per
 void Roedor::duchar(){
     cout << nombre << " no requiere ducha por ser un roedor" << endl;
 }
+
+void Roedor::ensuciar() {
+    cout << "Los roedores no se ensucian." << endl;
+}

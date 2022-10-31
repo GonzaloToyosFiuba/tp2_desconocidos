@@ -11,6 +11,8 @@ public:
 
     Caballo(string nombre, int edad, string tamanio, char especie, string personalidad);
 
+    void ensuciar();
+
 };
 
 

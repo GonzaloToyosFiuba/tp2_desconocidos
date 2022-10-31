@@ -13,5 +13,9 @@ Lagartija::Lagartija(string nombre, int edad, string tamanio, char especie, stri
 }
 
 void Lagartija::duchar() {
-    cout << nombre << " no requiere ducha por ser un erizo";
+    cout << nombre << "no requiere ducha por ser una lagartija";
+}
+
+void Lagartija::ensuciar() {
+    cout << "Las lagartijas no se ensucian." << endl;
 }

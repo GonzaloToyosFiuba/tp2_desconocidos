@@ -59,7 +59,7 @@ public:
 
     //PRE:
     //POST: reduce la higiene del animal segun corresponda
-    virtual void ensuciar();
+    virtual void ensuciar() = 0;
 
     //PRE:
     //POST: devuelve la higiene del animal

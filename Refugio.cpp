@@ -160,8 +160,8 @@ char Refugio::pedir_especie(){
     cin >> especie;
 
     while (!especie_es_valida(especie)){
-        cout << "Las especies validas son: Perro, Gato, Caballo, Roedor, Conejo, Erizo, Lagartija." << endl;
-        cout << "Ingrese una especie valida: ";
+        cout << "Las especies válidas son: Perro, Gato, Caballo, Roedor, Conejo, Erizo, Lagartija." << endl;
+        cout << "Ingrese una especie válida: ";
         cin >> especie;
     }
 
@@ -263,7 +263,7 @@ void Refugio::buscar_animal(){
     }
 }
 
-void Refugio::guardar_y_salir(){
+void Refugio::guardar(){
     this->mascotas.iniciar_cursor();
 
     ofstream archivoMascotas(PATH);
@@ -272,13 +272,14 @@ void Refugio::guardar_y_salir(){
     }
     
     archivoMascotas.close();
+}
 
+Refugio::~Refugio(){
     this->mascotas.iniciar_cursor();
 
     while (this->mascotas.hay_siguiente_cursor()){
         delete this->mascotas.obtener_cursor();
     }
-
 }
 
 enum Opciones_menu_principal{
@@ -419,7 +420,7 @@ void Refugio::mostrar_animales_adoptables(int espacio , Lista<int>* indices_anim
     this->mascotas.iniciar_cursor();
 
     while (this->mascotas.hay_siguiente_cursor()){
-        mascota_aux = mascotas.obtener_cursor();
+        mascota_aux = this->mascotas.obtener_cursor();
 
         if (mascota_aux->se_puede_adoptar(espacio)){
             cout << "Mascota N° " << indice << endl;
@@ -474,4 +475,17 @@ void Refugio::adoptar_animal(){
     }
 
     delete indices_animales_adoptables;
+}
+
+void Refugio::actualizar_valores(){
+    this->mascotas.iniciar_cursor();
+
+    Animal* mascota_aux;
+
+    while(this->mascotas.hay_siguiente_cursor()){
+        mascota_aux = this->mascotas.obtener_cursor();
+
+        mascota_aux->ensuciar();
+        mascota_aux->dar_hambre();
+    }
 }

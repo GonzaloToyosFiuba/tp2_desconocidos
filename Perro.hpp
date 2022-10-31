@@ -11,10 +11,7 @@ public:
     
     Perro(string nombre, int edad, string tamanio, char especie, string personalidad);
 
-
+    void ensuciar();
 };
-
-
-
 
 #endif//__PERRO_H_

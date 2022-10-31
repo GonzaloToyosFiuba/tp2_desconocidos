@@ -28,13 +28,17 @@ public:
 
     void rescatar_animal();
 
-    void guardar_y_salir();
+    void guardar();
 
     void buscar_animal();
 
     void cuidar_animal();
 
     void adoptar_animal();
+
+    void actualizar_valores();
+
+    ~Refugio();
 
 private:
 

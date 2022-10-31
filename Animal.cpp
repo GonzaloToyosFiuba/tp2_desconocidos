@@ -35,8 +35,9 @@ string Animal::obtener_personalidad() {
 }
 
 void Animal::dar_hambre() {
-
-    hambre += personalidad->perdida_de_hambre(HAMBRE);
+    if(hambre < MAX_HAMBRE){
+        hambre += personalidad->perdida_de_hambre(HAMBRE);
+    }    
 }
 
 void Animal::alimentar() {
@@ -46,10 +47,6 @@ void Animal::alimentar() {
 
 int Animal::obtener_hambre() {
     return hambre;
-}
-
-void Animal::ensuciar() {
-    higiene -= personalidad->perdida_de_higiene(SUCIEDAD);
 }
 
 void Animal::duchar() {

@@ -23,5 +23,5 @@ void Gato::duchar() {
 }
 
 void Gato::ensuciar() {
-    
+    cout << "Los gatos no se ensucian." << endl;
 }
