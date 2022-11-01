@@ -209,7 +209,7 @@ bool Refugio::especie_es_valida(string especie){
 }
 
 bool Refugio::personalidad_es_valida(string personalidad){
-    return(personalidad == DIMINUTO || personalidad == JUGUETON ||
+    return(personalidad == DORMILON || personalidad == JUGUETON ||
            personalidad == SOCIABLE || personalidad == TRAVIESO);
 }
 
