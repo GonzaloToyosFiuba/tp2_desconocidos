@@ -15,6 +15,10 @@ public:
 
     void ensuciar();
 
+    void dar_hambre();
+
+    void alimentar();
+
 };
 
 #endif // __GATO_H_

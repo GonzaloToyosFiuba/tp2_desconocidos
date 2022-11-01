@@ -17,3 +17,19 @@ void Erizo::ensuciar() {
         this->higiene -= this->personalidad->perdida_de_higiene(SUCIEDAD);
     }
 }
+
+void Erizo::dar_hambre() {
+    if(this->hambre < MAX_HAMBRE){
+        this->hambre += this->personalidad->perdida_de_hambre(HAMBRE);
+    }    
+}
+
+void Erizo::duchar() {
+    this->higiene = MAX_HIGIENE;
+    cout << this->nombre << " se ducho y esta libre de suciedad." << endl;
+}
+
+void Erizo::alimentar() {
+    this->hambre = MIN_HAMBRE;
+    cout << this->nombre << " comio " << this->alimento << " y sacio su hambre." << endl;
+}

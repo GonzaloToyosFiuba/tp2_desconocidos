@@ -1,8 +1,7 @@
 #include "Perro.hpp"
 #include "constantes.hpp"
 
-Perro::Perro(string nombre, int edad, string tamanio, char especie, string personalidad) {
-    
+Perro::Perro(string nombre, int edad, string tamanio, char especie, string personalidad) {  
     this->nombre = nombre;
     this->edad = edad;
     this->asignar_tamanio(tamanio);
@@ -17,4 +16,20 @@ void Perro::ensuciar() {
     if(this->higiene > MIN_HIGIENE){
         this->higiene -= this->personalidad->perdida_de_higiene(SUCIEDAD);
     }
+}
+
+void Perro::dar_hambre() {
+    if(hambre < MAX_HAMBRE){
+        hambre += personalidad->perdida_de_hambre(HAMBRE);
+    }    
+}
+
+void Perro::duchar() {
+    this->higiene = MAX_HIGIENE;
+    cout << this->nombre << " se ducho y esta libre de suciedad." << endl;
+}
+
+void Perro::alimentar() {
+    this->hambre = MIN_HAMBRE;
+    cout << this->nombre << " comio " << this->alimento << " y sacio su hambre." << endl;
 }

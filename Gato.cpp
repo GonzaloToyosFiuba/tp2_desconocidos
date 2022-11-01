@@ -19,9 +19,20 @@ Gato::Gato(string nombre, int edad, string tamanio, char especie, string persona
 
 void Gato::duchar() {
 
-    cout << nombre << " no necesita ducharse por ser un gato" << endl;
+    cout << this->nombre << " no necesita ducharse por ser un gato" << endl;
 }
 
 void Gato::ensuciar() {
     cout << "Los gatos no se ensucian." << endl;
+}
+
+void Gato::dar_hambre(){
+    if(this->hambre < MAX_HAMBRE){
+        this->hambre += this->personalidad->perdida_de_hambre(HAMBRE);
+    }    
+}
+
+void Gato::alimentar() {
+    this->hambre = MIN_HAMBRE;
+    cout << this->nombre << " comio " << this->alimento << " y sacio su hambre." << endl;
 }

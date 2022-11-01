@@ -13,6 +13,10 @@ public:
 
     void ensuciar();
 
+    void dar_hambre();
+
+    void alimentar();
+
 };
 
 #endif // __LAGARTIJA_H_

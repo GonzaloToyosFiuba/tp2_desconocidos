@@ -34,24 +34,8 @@ string Animal::obtener_personalidad() {
     return personalidad->obtener_tipo_de_personalidad();
 }
 
-void Animal::dar_hambre() {
-    if(hambre < MAX_HAMBRE){
-        hambre += personalidad->perdida_de_hambre(HAMBRE);
-    }    
-}
-
-void Animal::alimentar() {
-    hambre = MIN_HAMBRE;
-    cout << nombre << " comio " << alimento << " y sacio su hambre." << endl;
-}
-
 int Animal::obtener_hambre() {
     return hambre;
-}
-
-void Animal::duchar() {
-    higiene = MAX_HIGIENE;
-    cout << nombre << " se ducho y esta libre de suciedad." << endl;
 }
 
 int Animal::obtener_higiene() {

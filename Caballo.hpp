@@ -13,6 +13,12 @@ public:
 
     void ensuciar();
 
+    void dar_hambre();
+
+    void duchar();
+
+    void alimentar();
+
 };
 
 

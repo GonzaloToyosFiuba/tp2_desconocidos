@@ -13,9 +13,20 @@ Lagartija::Lagartija(string nombre, int edad, string tamanio, char especie, stri
 }
 
 void Lagartija::duchar() {
-    cout << nombre << "no requiere ducha por ser una lagartija";
+    cout << this->nombre << " no requiere ducha por ser una lagartija" << endl;
 }
 
 void Lagartija::ensuciar() {
     cout << "Las lagartijas no se ensucian." << endl;
+}
+
+void Lagartija::dar_hambre() {
+    if(this->hambre < MAX_HAMBRE){
+        this->hambre += this->personalidad->perdida_de_hambre(HAMBRE);
+    }    
+}
+
+void Lagartija::alimentar() {
+    this->hambre = MIN_HAMBRE;
+    cout << this->nombre << " comio " << this->alimento << " y sacio su hambre." << endl;
 }

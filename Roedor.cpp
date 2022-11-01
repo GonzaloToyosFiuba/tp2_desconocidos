@@ -13,9 +13,20 @@ Roedor::Roedor(string nombre, int edad, string tamanio, char especie, string per
 }
 
 void Roedor::duchar(){
-    cout << nombre << " no requiere ducha por ser un roedor" << endl;
+    cout << this->nombre << " no requiere ducha por ser un roedor" << endl;
 }
 
 void Roedor::ensuciar() {
     cout << "Los roedores no se ensucian." << endl;
+}
+
+void Roedor::dar_hambre() {
+    if(this->hambre < MAX_HAMBRE){
+        this->hambre += this->personalidad->perdida_de_hambre(HAMBRE);
+    }    
+}
+
+void Roedor::alimentar() {
+    this->hambre = MIN_HAMBRE;
+    cout << this->nombre << " comio " << this->alimento << " y sacio su hambre." << endl;
 }

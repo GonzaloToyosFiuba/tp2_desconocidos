@@ -12,6 +12,10 @@ public:
     void duchar();
 
     void ensuciar();
+
+    void dar_hambre();
+    
+    void alimentar();
 };
 
 #endif // __ROEDOR_H_

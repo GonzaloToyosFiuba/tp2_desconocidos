@@ -12,6 +12,12 @@ public:
     Perro(string nombre, int edad, string tamanio, char especie, string personalidad);
 
     void ensuciar();
+
+    void dar_hambre();
+
+    void duchar();
+
+    void alimentar();
 };
 
 #endif//__PERRO_H_

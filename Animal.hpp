@@ -43,11 +43,11 @@ public:
 
     //PRE:
     //POST: aumenta el hambre del animal segun corresponda
-    virtual void dar_hambre();
+    virtual void dar_hambre() = 0;
 
     //PRE:
     //POST: pone el hambre del animal en 0
-    virtual void alimentar();
+    virtual void alimentar() = 0;
 
     //PRE:
     //POST: devuelve el hambre del animal
@@ -55,7 +55,7 @@ public:
 
     //PRE:
     //POST: pone la higiene del animal en 100
-    virtual void duchar();
+    virtual void duchar() = 0;
 
     //PRE:
     //POST: reduce la higiene del animal segun corresponda
