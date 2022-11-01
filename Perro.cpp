@@ -9,19 +9,13 @@ Perro::Perro(string nombre, int edad, string tamanio, char especie, string perso
     this->asignar_personalidad(personalidad);
     this->hambre = MIN_HAMBRE;
     this->higiene = MAX_HIGIENE;
-    this->alimento = HUESOS;
+    this->alimento = ALIMENTOS[POSICION_HUESOS];
 }
 
 void Perro::ensuciar() {
     if(this->higiene > MIN_HIGIENE){
         this->higiene -= this->personalidad->perdida_de_higiene(SUCIEDAD);
     }
-}
-
-void Perro::dar_hambre() {
-    if(hambre < MAX_HAMBRE){
-        hambre += personalidad->perdida_de_hambre(HAMBRE);
-    }    
 }
 
 void Perro::duchar() {

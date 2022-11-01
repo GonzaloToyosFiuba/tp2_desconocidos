@@ -9,7 +9,7 @@ Roedor::Roedor(string nombre, int edad, string tamanio, char especie, string per
     this->asignar_personalidad(personalidad);
     this->hambre = MIN_HAMBRE;
     this->higiene = MAX_HIGIENE;
-    this->alimento = QUESO;
+    this->alimento = ALIMENTOS[POSICION_QUESO];
 }
 
 void Roedor::duchar(){

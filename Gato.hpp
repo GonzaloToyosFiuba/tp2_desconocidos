@@ -15,8 +15,6 @@ public:
 
     void ensuciar();
 
-    void dar_hambre();
-
     void alimentar();
 
 };

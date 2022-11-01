@@ -9,7 +9,7 @@ Erizo::Erizo(string nombre, int edad, string tamanio, char especie, string perso
     this->asignar_personalidad(personalidad);
     this->hambre = MIN_HAMBRE;
     this->higiene = MAX_HIGIENE;
-    this->alimento = INSECTOS;
+    this->alimento = ALIMENTOS[POSICION_INSECTO];
 }
 
 void Erizo::ensuciar() {
@@ -18,11 +18,6 @@ void Erizo::ensuciar() {
     }
 }
 
-void Erizo::dar_hambre() {
-    if(this->hambre < MAX_HAMBRE){
-        this->hambre += this->personalidad->perdida_de_hambre(HAMBRE);
-    }    
-}
 
 void Erizo::duchar() {
     this->higiene = MAX_HIGIENE;

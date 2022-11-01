@@ -2,6 +2,7 @@
 #define __TAMANIO_H__
 
 #include <iostream>
+#include "constantes.hpp"
 
 using namespace std;
 

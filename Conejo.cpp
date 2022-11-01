@@ -9,19 +9,13 @@ Conejo::Conejo(string nombre, int edad, string tamanio, char especie, string per
     this->asignar_personalidad(personalidad);
     this->hambre = MIN_HAMBRE;
     this->higiene = MAX_HIGIENE;
-    this->alimento = LECHUGA;
+    this->alimento = ALIMENTOS[POSICION_LECHUGA];
 }
 
 void Conejo::ensuciar() {
     if(this->higiene > MIN_HIGIENE){
         this->higiene -= this->personalidad->perdida_de_higiene(SUCIEDAD);
     }
-}
-
-void Conejo::dar_hambre() {
-    if(this->hambre < MAX_HAMBRE){
-        this->hambre += this->personalidad->perdida_de_hambre(HAMBRE);
-    }    
 }
 
 void Conejo::duchar() {

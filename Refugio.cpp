@@ -107,7 +107,7 @@ string Refugio::pedir_nombre(){
     getline(cin >> ws, nombre);
     cout << endl;
 
-    while (es_nombre_repetido(nombre) && nombre != "*" ){
+    while (es_nombre_repetido(nombre) && nombre != VOLVER_V1 ){
         
         cout << "El nombre existe, que desea hacer:" << endl;  
         cout << '\t' << "INGRESE:" << endl;
@@ -129,7 +129,7 @@ int Refugio::pedir_edad(){
     cin >> edad;
     cout << endl;
 
-    while (edad < 0 ){
+    while (edad < MIN_EDAD || edad > MAX_EDAD ){
         cout << "Reingrese la edad:" << endl;
         cout << "Edad: ";
         cin >> edad;
@@ -165,7 +165,7 @@ char Refugio::pedir_especie(){
         cin >> especie;
     }
 
-    return this->obtener_char_especie(especie);
+    return especie[0];
 }
 
 string Refugio::pedir_personalidad(){
@@ -198,41 +198,19 @@ bool Refugio::es_nombre_repetido(string nombre){
 }
 
 bool Refugio::tamanio_es_valido(string tamanio){
-    return (tamanio == DIMINUTO || tamanio == PEQUENIO || tamanio == MEDIANO ||
-            tamanio == GRANDE || tamanio == GIGANTE);
+    return (tamanio == TAMANIOS[POSICION_DIMINUTO] || tamanio == TAMANIOS[POSICION_PEQUENIO] || tamanio == TAMANIOS[POSICION_MEDIANO] ||
+            tamanio == TAMANIOS[POSICION_GRANDE] || tamanio == TAMANIOS[POSICION_GIGANTE]);
 }
 
 bool Refugio::especie_es_valida(string especie){
-    return (especie == PERRO_S || especie == GATO_S || especie == CABALLO_S || 
-            especie == ROEDOR_S || especie == CONEJO_S || especie == ERIZO_S ||
-            especie == LAGARTIJA_S);
+    return (especie == NOMBRES_ESPECIES[POSICION_PERRO] || especie == NOMBRES_ESPECIES[POSICION_GATO] || especie == NOMBRES_ESPECIES[POSICION_CABALLO] || 
+            especie == NOMBRES_ESPECIES[POSICION_ROEDOR] || especie == NOMBRES_ESPECIES[POSICION_CONEJO] || especie == NOMBRES_ESPECIES[POSICION_ERIZO] ||
+            especie == NOMBRES_ESPECIES[POSICION_LAGARTIJA]);
 }
 
 bool Refugio::personalidad_es_valida(string personalidad){
-    return(personalidad == DORMILON || personalidad == JUGUETON ||
-           personalidad == SOCIABLE || personalidad == TRAVIESO);
-}
-
-char Refugio::obtener_char_especie(string especie){
-    char especie_char;
-
-    if(especie == PERRO_S){
-        especie_char = PERRO;
-    } else if(especie == GATO_S){
-        especie_char = GATO;
-    } else if(especie == CABALLO_S){
-        especie_char = CABALLO;
-    } else if(especie == ROEDOR_S){
-        especie_char = ROEDOR;
-    } else if(especie == CONEJO_S){
-        especie_char = CONEJO;
-    } else if(especie == ERIZO_S){
-        especie_char = ERIZO;
-    } else if(especie == LAGARTIJA_S){
-        especie_char = LAGARTIJA;
-    }
-
-    return especie_char;
+    return(personalidad == PERSONALIDADES[POSICION_DORMILON] || personalidad == PERSONALIDADES[POSICION_JUGUETON] ||
+           personalidad == PERSONALIDADES[POSICION_SOCIABLE] || personalidad == PERSONALIDADES[POSICION_TRAVIESO]);
 }
 
 void Refugio::buscar_animal(){
@@ -453,7 +431,7 @@ void Refugio::pedir_animal_a_adoptar(Lista<int>* indices_animales_adoptables, in
     cout << "Numero: ";
     cin >> indice;
 
-    while (indice != -1 && !this->es_animal_adoptable(indices_animales_adoptables, indice)){
+    while (indice != VOLVER_V2 && !this->es_animal_adoptable(indices_animales_adoptables, indice)){
         cout << "Animal fuera de la lista de los que puede adoptar" << endl;
         cout << "Ingresar el numero de la mascota que quiere adoptar (ingrese '-1' para volver al menu). " << endl;
         cout << "Numero: ";

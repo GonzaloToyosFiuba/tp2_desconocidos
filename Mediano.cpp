@@ -5,5 +5,5 @@ Mediano::Mediano(string tipo_tamanio){
 }
 
 bool Mediano::se_puede_adoptar(int espacio){
-    return (espacio >= 10);
+    return (espacio >= MIN_MEDIANO);
 }

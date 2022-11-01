@@ -43,7 +43,7 @@ public:
 
     //PRE:
     //POST: aumenta el hambre del animal segun corresponda
-    virtual void dar_hambre() = 0;
+    void dar_hambre();
 
     //PRE:
     //POST: pone el hambre del animal en 0
@@ -83,6 +83,9 @@ protected:
     void asignar_tamanio(string tamanio);
 
     void asignar_personalidad(string personalidad);
+
+private:
+    string definir_especie(char especie);
 };
 
 

@@ -5,5 +5,5 @@ Gigante::Gigante(string tipo_tamanio){
 }
 
 bool Gigante::se_puede_adoptar(int espacio){
-    return (espacio >= 50);
+    return (espacio >= MIN_GIGANTE);
 }

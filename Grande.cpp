@@ -5,5 +5,5 @@ Grande::Grande(string tipo_tamanio){
 }
 
 bool Grande::se_puede_adoptar(int espacio){
-    return (espacio >= 20);
+    return (espacio >= MIN_GRANDE);
 }

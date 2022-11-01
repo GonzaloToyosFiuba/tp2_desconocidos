@@ -62,8 +62,6 @@ private:
 
     bool personalidad_es_valida(string personalidad);
 
-    char obtener_char_especie(string especie);
-
     void leer_datos();
 
     void procesar_opcion_cuidar_animal(int opcion);
