@@ -82,8 +82,8 @@ void Animal::mostrar_informacion_general(){
 }
 
 string Animal::obtener_informacion_a_guardar(){
-    return this->obtener_nombre() + "," + to_string(this->obtener_edad()) + "," + this->obtener_tamanio()
-           + "," + this->obtener_especie() + "," + this->obtener_personalidad();
+    return this->nombre + "," + to_string(this->edad) + "," + this->tamanio->obtener_tipo_de_tamanio()
+           + "," + this->especie + "," + this->personalidad->obtener_tipo_de_personalidad();
 }
 
 void Animal::asignar_personalidad(string personalidad){

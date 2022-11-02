@@ -11,9 +11,9 @@ enum Estados {
     CUIDAR_ANIMALES,
     ADOPTAR_ANIMAL,
     GUARDAR_Y_SALIR,
+    SALIR,
 };
 
 void aplicacion(Refugio* mi_refugio, int &estado);
-
 
 #endif//__MENU_HPP__

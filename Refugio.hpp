@@ -52,6 +52,10 @@ private:
 
     char pedir_especie();
 
+    char determinar_especie(string especie);
+
+    bool es_especie_valida(string especie);
+
     string pedir_personalidad();
 
     bool es_nombre_repetido(string nombre);

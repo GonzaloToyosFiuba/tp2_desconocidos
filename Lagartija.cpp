@@ -16,11 +16,9 @@ void Lagartija::duchar() {
     cout << this->nombre << " no requiere ducha por ser una lagartija" << endl;
 }
 
-void Lagartija::ensuciar() {
-    cout << "Las lagartijas no se ensucian." << endl;
-}
+void Lagartija::ensuciar() {}
 
 void Lagartija::alimentar() {
     this->hambre = MIN_HAMBRE;
-    cout << this->nombre << " comio " << this->alimento << " y sacio su hambre." << endl;
+    cout << this->nombre << " comió " << this->alimento << " y sació su hambre." << endl;
 }

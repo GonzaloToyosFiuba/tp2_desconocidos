@@ -11,7 +11,7 @@ int main(){
     
     int estado = INICIO;
 
-    while (estado != GUARDAR_Y_SALIR) {
+    while (estado != SALIR) {
         aplicacion(refugio, estado);
     }
 

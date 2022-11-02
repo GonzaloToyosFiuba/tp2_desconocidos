@@ -21,10 +21,10 @@ void Caballo::ensuciar() {
 
 void Caballo::duchar() {
     this->higiene = MAX_HIGIENE;
-    cout << this->nombre << " se ducho y esta libre de suciedad." << endl;
+    cout << this->nombre << " se duchó y está libre de suciedad." << endl;
 }
 
 void Caballo::alimentar() {
     this->hambre = MIN_HAMBRE;
-    cout << this->nombre << " comio " << this->alimento << " y sacio su hambre." << endl;
+    cout << this->nombre << " comió " << this->alimento << " y sació su hambre." << endl;
 }

@@ -16,9 +16,7 @@ void Roedor::duchar(){
     cout << this->nombre << " no requiere ducha por ser un roedor" << endl;
 }
 
-void Roedor::ensuciar() {
-    cout << "Los roedores no se ensucian." << endl;
-}
+void Roedor::ensuciar() {}
 
 void Roedor::dar_hambre() {
     if(this->hambre < MAX_HAMBRE){
@@ -28,5 +26,5 @@ void Roedor::dar_hambre() {
 
 void Roedor::alimentar() {
     this->hambre = MIN_HAMBRE;
-    cout << this->nombre << " comio " << this->alimento << " y sacio su hambre." << endl;
+    cout << this->nombre << " comió " << this->alimento << " y sació su hambre." << endl;
 }

@@ -4,7 +4,8 @@
 PRE: -
 POS: imprime el menú de opciones
 */
-void mostrarMenu(){
+void mostrar_menu(){
+    cout << endl;
     cout << "MENÚ PRINCIPAL " << endl;
     cout << "1. Listar animales" << endl;
     cout << "2. Rescatar animal" << endl;
@@ -17,9 +18,10 @@ void mostrarMenu(){
 int preguntar_opcion_usuario(){
     int opcion;
     do {
-        cout << "Ingresá una opción" << endl;
+        cout << "Ingresá una opción: ";
         cin >> opcion;
-    } while (opcion < INICIO || opcion > GUARDAR_Y_SALIR);
+        cout << endl;
+    } while (opcion < INICIO || opcion > SALIR);
 
     return opcion;
 }
@@ -27,7 +29,7 @@ int preguntar_opcion_usuario(){
 void aplicacion(Refugio* mi_refugio, int &estado){
     switch (estado) {
         case INICIO:
-            mostrarMenu();
+            mostrar_menu();
             estado = preguntar_opcion_usuario();
             mi_refugio->actualizar_valores();
         break;
@@ -59,10 +61,10 @@ void aplicacion(Refugio* mi_refugio, int &estado){
     
         case GUARDAR_Y_SALIR:
             mi_refugio->guardar();
+            estado = SALIR;
         break;
     
         default:
             estado = INICIO;
-        break;
     }
 }

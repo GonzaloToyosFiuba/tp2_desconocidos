@@ -31,6 +31,8 @@ const char LAGARTIJA = 'L';
 const string VOLVER_V1 = "*";
 const int    VOLVER_V2 = -1; 
 
+const char LETRA_ERROR = '#';
+
 enum Posiciones_especies{
     POSICION_PERRO,
     POSICION_GATO,
@@ -65,7 +67,7 @@ enum Posiciones_alimetos{
     POSICION_INSECTO
 };
 
-const string NOMBRES_ESPECIES[7] = {"Perro", "Gato", "Caballlo", "Roedor", "Conejo", "Erizo", "Lagartija"};
+const string NOMBRES_ESPECIES[7] = {"PERRO", "GATO", "CABALLO", "ROEDOR", "CONEJO", "ERIZO", "LAGARTIJA"};
 
 const string TAMANIOS[5] = {"diminuto", "pequeño", "mediano", "grande" , "gigante"};
 
