@@ -5,7 +5,7 @@
 
 class Caballo : public Animal {
 public:
-    //PRE:
+    //PRE: 0 < edad <= 100
     //POST: Construye un Animal de tipo Caballo
     Caballo(string nombre, int edad, string tamanio, char especie, string personalidad);
 

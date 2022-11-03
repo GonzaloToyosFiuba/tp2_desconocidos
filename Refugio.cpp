@@ -20,7 +20,11 @@ void Refugio::leer_datos(){
     ifstream mis_mascotas(PATH);
 
     if(!mis_mascotas.is_open()) {
-        cout << "Error al abrir el archivo " << PATH << " ." << endl << endl;
+        cout << "Error al abrir el archivo." << PATH << " ." << endl << endl;
+        return;
+    }
+
+    if(mis_mascotas.eof()){
         return;
     }
 
@@ -321,17 +325,19 @@ void Refugio::duchar_a_todos(){
 }
 
 void Refugio::pedir_opcion_cuidar_individual(int &opcion){
-    cout << "¿Qué desea hacer con la mascota?" << endl;
+    cout << endl << "¿Qué desea hacer con la mascota?" << endl;
     cout << "1) Duchar mascota" << endl;
     cout << "2) Alimentar mascota." << endl;
     cout << "3) Saltear" << endl;
+    cout << "Opción: ";
     cin >> opcion;
 
     while(opcion < DUCHAR || opcion > SALTEAR){
-        cout << "Ingresar una opción válida." << endl;
+        cout << endl << "Ingresar una opción válida." << endl;
         cout << "1) Duchar mascota" << endl;
         cout << "2) Alimentar mascota." << endl;
         cout << "3) Saltear" << endl;
+        cout << "Opción: ";
         cin >> opcion;
     }
 }
@@ -389,6 +395,7 @@ void Refugio::pedir_opcion_cuidar_animal(int &opcion){
     cout << "2) Alimentar a todos." << endl;
     cout << "3) Bañar a todos." << endl;
     cout << "4) Salir." << endl;
+    cout << "Opción: ";
     cin >> opcion;
 
     while(opcion < ELEGIR_INDIVIDUALMENTE || opcion > SALIR){
@@ -397,6 +404,7 @@ void Refugio::pedir_opcion_cuidar_animal(int &opcion){
         cout << "2) Alimentar a todos." << endl;
         cout << "3) Bañar a todos." << endl;
         cout << "4) Salir." << endl;
+        cout << "Opción: ";
         cin >> opcion;
     }
 }

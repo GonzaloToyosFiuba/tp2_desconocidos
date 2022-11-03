@@ -5,7 +5,7 @@
 
 class Conejo : public Animal {
 public:
-    //PRE:
+    //PRE: 0 < edad <= 100
     //POST: Construye un Animal de tipo Conejo.
     Conejo(string nombre, int edad, string tamanio, char especie, string personalidad);
     //PRE:
