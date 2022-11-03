@@ -18,12 +18,6 @@ void Roedor::duchar(){
 
 void Roedor::ensuciar() {}
 
-void Roedor::dar_hambre() {
-    if(this->hambre < MAX_HAMBRE){
-        this->hambre += this->personalidad->perdida_de_hambre(HAMBRE);
-    }    
-}
-
 void Roedor::alimentar() {
     this->hambre = MIN_HAMBRE;
     cout << this->nombre << " comió " << this->alimento << " y sació su hambre." << endl;

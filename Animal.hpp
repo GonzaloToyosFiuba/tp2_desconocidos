@@ -64,27 +64,35 @@ public:
     //PRE:
     //POST: devuelve la higiene del animal
     int obtener_higiene();
-
+    //PRE:
+    //POST: Imprime por pantalla toda la informacion de un animal
     void mostrar_informacion();
-
+    //PRE:
+    //POST: Imprime por pantalla solo informacion general de una anima (nombre,edad,especie,personalidad).
     void mostrar_informacion_general();
-
+    //PRE: espacio > 0
+    //POST: Devuelve true si es un animal adoptable segun el espacio.
     bool se_puede_adoptar(int espacio);
-
+    //PRE:
+    //POST: Devuelve la información que se va a guardar sobre un animal (nombre,edad,especie,personalidad).
     string obtener_informacion_a_guardar();
-
+    //PRE:
+    //POST: Destruye animal, sus clases hijas , Tamanio y Personalidad
     virtual ~Animal() ;
 
 
 protected:
 
     //PRE: tamanio valido
-    //POST: asigna los espacios que ocupa un animal segun su tamanio
+    //POST: Asigna el tamanio de un animal
     void asignar_tamanio(string tamanio);
-
+    //PRE:
+    //POST: Asigana la personalidad de un animal
     void asignar_personalidad(string personalidad);
 
 private:
+    //PRE: especie valida
+    //POST: Devuelve el nombre completo de la especie. 
     string definir_especie(char especie);
 };
 
