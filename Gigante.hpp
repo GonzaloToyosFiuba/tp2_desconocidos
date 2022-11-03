@@ -5,7 +5,11 @@
 
 class Gigante : public Tamanio {
 public:
+    // PRE:
+    // POST: Construye un Tamanio de tipo Gigante.
     Gigante(string tipo_tamanio);
+    // PRE: espacio > 0 .
+    // POST: Devuelve true si espacio >= 50 .
     bool es_espacio_adecuado(int espacio);
 };
 

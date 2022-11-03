@@ -3,10 +3,7 @@
 
 #include "Animal.hpp"
 
-class Caballo : public Animal
-{
-private:
-    
+class Caballo : public Animal {
 public:
 
     Caballo(string nombre, int edad, string tamanio, char especie, string personalidad);

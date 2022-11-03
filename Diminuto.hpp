@@ -5,7 +5,11 @@
 
 class Diminuto : public Tamanio {
 public:
+    // PRE:
+    // POST: Construye un Tamanio de tipo Diminuto.
     Diminuto(string tipo_tamanio);
+    // PRE: espacio > 0 .
+    // POST: Devuelve true siempre.
     bool es_espacio_adecuado(int espacio);
 };
 

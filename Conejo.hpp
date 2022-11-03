@@ -4,8 +4,6 @@
 #include "Animal.hpp"
 
 class Conejo : public Animal {
-
-private:
 public:
     Conejo(string nombre, int edad, string tamanio, char especie, string personalidad);
 

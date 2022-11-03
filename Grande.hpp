@@ -5,7 +5,11 @@
 
 class Grande : public Tamanio {
 public:
+    // PRE:
+    // POST: Construye un Tamanio de Tipo Grande.
     Grande(string tipo_tamanio);
+    // PRE: espacio > 0 .
+    // POST: Devuelve verdadero si espacio >= 10 .
     bool es_espacio_adecuado(int espacio);
 };
 
