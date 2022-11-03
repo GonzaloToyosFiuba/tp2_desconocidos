@@ -99,7 +99,7 @@ void Animal::asignar_personalidad(string personalidad){
 }
 
 bool Animal::se_puede_adoptar(int espacio){
-    return this->tamanio->se_puede_adoptar(espacio);
+    return this->tamanio->es_espacio_adecuado(espacio);
 }
 
 string Animal::definir_especie(char especie) {

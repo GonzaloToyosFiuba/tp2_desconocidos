@@ -6,7 +6,7 @@
 class Mediano : public Tamanio {
 public:
     Mediano(string tipo_tamanio);
-    bool se_puede_adoptar(int espacio);
+    bool es_espacio_adecuado(int espacio);
 };
 
 #endif // __MEDIANO_H__

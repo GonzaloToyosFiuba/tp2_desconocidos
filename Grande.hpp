@@ -6,7 +6,7 @@
 class Grande : public Tamanio {
 public:
     Grande(string tipo_tamanio);
-    bool se_puede_adoptar(int espacio);
+    bool es_espacio_adecuado(int espacio);
 };
 
 #endif // __GRANDE_H__

@@ -6,7 +6,7 @@
 class Gigante : public Tamanio {
 public:
     Gigante(string tipo_tamanio);
-    bool se_puede_adoptar(int espacio);
+    bool es_espacio_adecuado(int espacio);
 };
 
 #endif // __GIGANTE_H__

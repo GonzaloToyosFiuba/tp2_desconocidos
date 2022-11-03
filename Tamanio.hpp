@@ -11,7 +11,7 @@ class Tamanio{
 protected:
     string tipo_tamanio;
 public:
-    virtual bool se_puede_adoptar(int espacio) = 0;
+    virtual bool es_espacio_adecuado(int espacio) = 0;
     virtual ~Tamanio() = default;
     string obtener_tipo_de_tamanio();
 };

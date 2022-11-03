@@ -6,7 +6,7 @@
 class Diminuto : public Tamanio {
 public:
     Diminuto(string tipo_tamanio);
-    bool se_puede_adoptar(int espacio);
+    bool es_espacio_adecuado(int espacio);
 };
 
 #endif // __DIMINUTO_H__
