@@ -16,24 +16,33 @@ private:
     Nodo<TIPO>* obtener_nodo(int posicion);
     
 public:
+    // PRE:
+    // POST: Construye una Lista vacia
     Lista();
-    //*pre :    0 < pos <= cantidad + 1 
-    // post: agraga dato a las lista (la primera posicion es la 1)
+    // PRE :    0 < posicion <= cantidad + 1 
+    // POST: Agraga el  dato a la Lista (la primera posicion es la 1)
     void alta(TIPO dato, int posicion);
-    
+    // PRE :  0 < posicion <= cantidad
+    // POST: Devuelve el dato  TIPO que esta en posicion (empieza en 1)
     TIPO consulta(int posicion);
-
-    // post: elimina de la lista
+    // PRE : 0 < posicion <= cantidad  
+    // POST: Da de baja el dato TIPO en dicha posicion (empieza en uno)
     void baja(int posicion);
-
+    // PRE :   
+    // POST: Devuelve verdadero si la Lista esta vacion, en caso contrario devuelve falso
     bool esta_vacio();
-
+    // PRE :   
+    // POST: devuelve la cantidad de elementos en la Lista
     int obtener_cantidad();
-
+    // PRE :   
+    // POST: Delvuelve verdadero si hay algun dato mas en la Lista , en caso  de que esta vacia
+    //       o se llego al final de la lista devuelve falso.
     bool hay_siguiente_cursor();
-
+    // PRE :   
+    // POST: Devuelve el dato TIPO y mueve el cursor al siguiente
     TIPO obtener_cursor();
-
+    // PRE :   
+    // POST: Pone el cursor al principio
     void iniciar_cursor();
     
     ~Lista();
