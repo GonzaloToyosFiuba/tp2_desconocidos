@@ -17,35 +17,10 @@ string Animal::obtener_nombre() {
     return nombre;
 }
 
-int Animal::obtener_edad() {
-    return edad;
-}
-
-string Animal::obtener_tamanio() {
-    return tamanio->obtener_tipo_de_tamanio();
-}
-
-char Animal::obtener_especie() {
-    return especie;
-}
-
-
-string Animal::obtener_personalidad() {
-    return personalidad->obtener_tipo_de_personalidad();
-}
-
-void Animal::dar_hambre(){
+void Animal::dar_hambre() {
     if(this->hambre < MAX_HAMBRE){
         this->hambre += this->personalidad->perdida_de_hambre(HAMBRE);
     }    
-}
-
-int Animal::obtener_hambre() {
-    return hambre;
-}
-
-int Animal::obtener_higiene() {
-    return higiene;
 }
 
 void Animal::asignar_tamanio(string tamanio) {

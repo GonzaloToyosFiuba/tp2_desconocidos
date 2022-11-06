@@ -419,12 +419,14 @@ void Refugio::cuidar_animal(){
 }
 
 void Refugio::pedir_espacio_disponible(int &espacio){
-    cout << "Ingresar espacio disponible en casa (en metros cuadrados): " << endl;
+    cout << "Ingresar espacio disponible en casa (en metros cuadrados). " << endl;
+    cout << "Espacio: ";
     cin >> espacio;
 
     while(espacio <= 0){
         cout << "Ingresar un espacio válido." << endl;
-        cout << "Ingresar espacio disponible en casa (en metros cuadrados): " << endl;
+        cout << "Ingresar espacio disponible en casa (en metros cuadrados)." << endl;
+        cout << "Espacio: ";
         cin >> espacio;
     }
 }

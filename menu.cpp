@@ -14,14 +14,17 @@ void mostrar_menu(){
     cout << "5. Adoptar animal" << endl;
     cout << "6. Guardar y salir" << endl;
 }
-
+/*
+PRE: -
+POS: Pide una opcion del menu al usuario y la devuelve cuando sea correcta.
+*/
 int preguntar_opcion_usuario(){
     int opcion;
     do {
-        cout << "Ingresá una opción: ";
+        cout << "Ingresá una opción (Según el número que tengan en el menú): ";
         cin >> opcion;
         cout << endl;
-    } while (opcion < INICIO || opcion > SALIR);
+    } while (opcion < LISTAR_ANIMALES|| opcion > SALIR);
 
     return opcion;
 }

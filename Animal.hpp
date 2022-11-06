@@ -26,32 +26,12 @@ public:
     string obtener_nombre();
     
     //PRE:
-    //POST: devuelve la edad del animal 
-    int obtener_edad();
-
-    //PRE:
-    //POST: devuelve el tamanio del animal
-    string obtener_tamanio();
-
-    //PRE:
-    //POST: devuelve la especie del animal
-    char obtener_especie();
-
-    //PRE:
-    //POST: devuelve la personalidad del animal
-    string obtener_personalidad();
-
-    //PRE:
     //POST: aumenta el hambre del animal segun corresponda
     void dar_hambre();
 
     //PRE:
     //POST: pone el hambre del animal en 0
     virtual void alimentar() = 0;
-
-    //PRE:
-    //POST: devuelve el hambre del animal
-    int obtener_hambre();
 
     //PRE:
     //POST: pone la higiene del animal en 100
@@ -61,9 +41,6 @@ public:
     //POST: reduce la higiene del animal segun corresponda
     virtual void ensuciar() = 0;
 
-    //PRE:
-    //POST: devuelve la higiene del animal
-    int obtener_higiene();
     //PRE:
     //POST: Imprime por pantalla toda la informacion de un animal
     void mostrar_informacion();

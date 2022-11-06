@@ -14,6 +14,8 @@ enum Estados {
     SALIR,
 };
 
+// PRE: 
+// POST: Cambia el valor del estado según las condiciones de la aplicacion.
 void aplicacion(Refugio* mi_refugio, int &estado);
 
 #endif//__MENU_HPP__
